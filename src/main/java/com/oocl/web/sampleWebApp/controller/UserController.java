@@ -17,7 +17,8 @@ public class UserController {
 
     @PostMapping(produces = {"application/json"})
     public ResponseEntity<String> create(@RequestBody User user){
-        return null;
+        URI location = URI.create("/users/" + userId++);
+        return ResponseEntity.created(location).build();
     }
 
 }
